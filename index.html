@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+</head>
+
+<body>
+    <header>
+        <span href="#" class="sign_header">oof, mani!</span>
+        <ul>
+            <li><a href="#" class="nav_text">About Me</a></li>
+            <li><a href="#" class="nav_text_current">Portfolio</a></li>
+            <li><a href="#" class="nav_text">Contact Me</a></li>
+        </ul>
+    </header>
+    <section style="min-height: 50vh;">   
+        <h1 class="sequential" >Hello World! </h1>
+        <h1 class="sequential" style="animation-delay: 1s;">I'm Aditya Mani, and this is my project portfolio!</h1>
+        <p class="sequential" style="animation-delay: 3s;">Or rather, A collection of bugs-turned-features that will surely make you say -</p>
+        <div>
+            <p class="sign" id="sign" style="opacity: 0; animation-delay: 5s;">Oof, Mani!</p>
+        </div>
+        <p class="sequential" style="animation-delay: 7s;"> Scroll Down ↓</p>
+
+    </section>
+    
+    <section class="hidden" id = "m_sec">
+        <h2>Project 1:</h2>
+        <div class="mario_title">
+            <p class = "mario" id = "m_title">Super Mario Bros!</p>
+        </div>
+        <video src="mario_rec.mp4" autoplay muted loop width="100%"></video>
+        <br>
+        <p class="desc">I created a Deep Q learning algorithm for an AI agent to solve Super Mario Bros. The neural network rewards the agent
+            for progressing forward in the least time. This is a video showcasing the earlier generations of the system. Through this project, 
+            I gained a thorough understanding of reinforcement learning and incorporating AI agents in game design.
+        </p>
+        <p class="desc">The full codebase for this project can be found <a href ="https://github.com/OofMani/SuperMarioBros">here.</a></p>
+
+        <div class="sec_border"></div>
+    </section>
+    
+   
+    <section class="hidden">
+        <h2>Project 2:</h2>
+        <div class="chess_title">
+            <p class = "chess" id = "c_title">Chess Engine <span class="pieces">♕</span></p>
+        </div>
+        <img src="chess_ss.png" width="100%" alt="Player playing chess against engine">
+        <p class="desc">I designed a chess engine using a simple min-max algorithm incorporating alpha-beta pruning.</p>
+        <p class="desc">The full codebase for this project can be found <a href ="https://github.com/OofMani/SuperMarioBros">here.</a> Feel free
+        to play a round or two!</p>
+
+    </section>
+    
+    <section class="hidden">
+        <h2>Project 3</h2>
+        <p class="desc">Details for project 3</p>
+    </section>
+    
+    <section class="hidden">
+        <h2>Project 4</h2>
+        <p class="desc">Details for project 4</p>
+    </section>
+    
+</body>
+</html>
