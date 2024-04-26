@@ -143,7 +143,7 @@ function update() {
         document.getElementById("hoot").classList.add("disappear");
 
         setTimeout(function() {
-            window.location.href = "portfolio.html";
+            window.location.href = "true_about_me.html";
         }, 1000);
         
 

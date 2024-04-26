@@ -1,0 +1,84 @@
+
+@font-face {
+    font-family: 'Ginga';
+    src: url('dreamwood.ttf');
+}
+
+.Iam2{
+
+    font-size: 20px;
+    justify-self: center;
+    text-align: center;
+    animation-delay: 3s;
+    width: 60%;
+}
+
+.Iam3{
+    font-size: 20px;
+    justify-self: center;
+    animation-delay: 3.2s;
+    width:80%;
+}
+
+.creative{
+
+    font-family: "Ginga";
+    font-size: 40px;
+}
+
+.about_img{
+    
+    width: 100%;
+    height: 100%;
+
+
+    margin-bottom: 20px;
+}
+
+.box {
+    width: 100%;
+    display: grid;
+    place-content: center;
+    color: white;
+    text-shadow: 0 1px 0 #000;
+    
+    --border-angle: 0turn; 
+    --main-bg: conic-gradient(
+        from var(--border-angle),
+        #213,
+        #112 5%,
+        #112 60%,
+        #213 95%
+      );
+    
+    border: solid 7.5px transparent;
+    border-radius: 0em;
+    --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, rgb(140, 0, 255), #f03 99%, transparent);
+    
+    background: 
+      
+      var(--main-bg) padding-box,
+
+      var(--gradient-border) border-box, 
+
+      var(--main-bg) border-box;
+    
+    background-position: center center;
+  
+    animation: bg-spin 12s linear infinite;
+
+  }
+  
+  @property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+  }
+  
+
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+
