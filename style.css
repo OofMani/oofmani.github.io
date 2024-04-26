@@ -202,7 +202,7 @@ header{
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-items: space-between;
     align-items: center;
     transition: 0.6s;
     padding: 1% 1%;
@@ -223,7 +223,7 @@ header ul{
 header ul li{
     position: relative;
     list-style: none;
-    width: 200px;
+    width: 150px;
 }
 
 header ul li a{
@@ -280,7 +280,7 @@ header ul li a{
         cursor .4s step-end infinite alternate;
 }
 
-.footer{
+footer{
     display: grid;
     height: 60px;
     bottom: 0;
@@ -292,4 +292,8 @@ header ul li a{
     padding: 1% 1%;
     z-index: 9999;
     background-color: #010002;
+}
+
+#board {
+    background-color: black;
 }

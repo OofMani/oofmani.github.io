@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=MedievalSharp&family=VT323&display=swap');
+
+body {
+
+
+}
+
+#board {
+    background-color: transparent;
+} 
+
+.separator{
+    margin-top: 100px;
+}
+
+.game{
+    display: grid;
+    place-items: center;
+    justify-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.whoami{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.who{
+    font-family: 'medievalsharp', cursive;
+    font-size: 65px;
+    justify-self: center;
+}
+
+.am{
+
+    font-size: 20px;
+    justify-self: center;
+}
+
+.Iam{
+
+    font-size: 30px;
+    justify-self: center;
+    animation-delay: 3s;
+}
+
+.shooter{
+    justify-self: center;
+    animation-delay: 5s;
+}
+
+.disappear{
+    animation: disappear 1s forwards;
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
