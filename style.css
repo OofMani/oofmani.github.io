@@ -5,23 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
-
-
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap');
 
 /* Path: style.css */
 
-body {
-    font-family: 'Source Code Pro', monospace;
-    color: antiquewhite;
-    background: linear-gradient(45deg,#030001, #010002);
-
-    padding: 0;
-    margin: 0;
-}
-
+/* ---------------------- */
+/*       KEYFRAMES        */
+/* ---------------------- */
 @keyframes color {
     0%{
         background-position: 0 100%;
@@ -32,40 +22,6 @@ body {
     100%{
         background-position: 0 100%;
     }
-}
-
-section {
-    display: grid;
-    place-items: center;
-    align-content: center;
-    min-height: 100vh;
-    margin-left: 15%;
-    margin-right: 15%;
-
-    padding-top: 10%;
-    padding-bottom: 5%;
-}
-.acad_titles{
-    font-family: 'Times New Roman';
-    font-size: 45px;
- 
-}
-.sec_border{
-   margin-left: 15%;
-   margin-right: 15%;
-    border-bottom: antiquewhite 3px dashed;
-}
-.mario{
-
-    font-family: 'Press Start 2P', system-ui;
-    font-size: 25px;
-    border-right: 4px solid;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    animation:
-        /* typing 2s steps(17), */
-        cursor .4s step-end infinite alternate;
 }
 
 @keyframes cursor{
@@ -80,38 +36,120 @@ section {
     }
 }
 
-
-.hidden{
-    opacity: 0.1;
-    filter: blur(10px);
-    /* transform: translateX(-100%); */
-    transition: all 2s ;
-    transition-delay: 0.5s;
-
+@keyframes cursor{
+    50%{
+        border-color: transparent;
+    }
 }
 
-.desc_pic{
-    
+@keyframes typing{
+    from{
+        width: 0;
+    }
 }
 
-.mario_none{
-    display: none;
-
+@keyframes sequential {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* ---------------------- */
+/*       BASE STYLES      */
+/* ---------------------- */
+body {
+    font-family: 'Source Code Pro', monospace;
+    color: antiquewhite;
+    background: linear-gradient(45deg,#030001, #010002);
 
-.show{
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
+    padding: 0;
+    margin: 0;
 }
 
 a{
     color: aqua;
     background-color: transparent;
     text-decoration: none;
-  }
+}
 
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+    margin-left: 15%;
+    margin-right: 15%;
+
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
+.sec_border{
+   margin-left: 15%;
+   margin-right: 15%;
+    border-bottom: antiquewhite 3px dashed;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-items: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 1% 1%;
+    z-index: 9999;
+    background-color: #010002;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    position: relative;
+    list-style: none;
+    width: 150px;
+}
+
+header ul li a{
+    position: relative;
+    margin: 0 10%;
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+footer{
+    display: grid;
+    height: 60px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    transition: 0.6s;
+    padding: 1% 1%;
+    z-index: 9999;
+    background-color: #010002;
+}
+
+#board {
+    background-color: black;
+}
+
+/* ---------------------- */
+/*       NAVIGATION       */
+/* ---------------------- */
 .nav_text{
     position: relative;
 }
@@ -129,11 +167,9 @@ a{
     height: 2px;
     background: red;
 
-
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 250ms ease-in, background 400ms ease-in;
-
 }
 
 .nav_text_current::after{
@@ -151,6 +187,41 @@ a{
     transform: scaleX(1);
     transform-origin: left;
     background: antiquewhite;
+}
+
+/* ---------------------- */
+/*    TYPOGRAPHY & ANIM   */
+/* ---------------------- */
+.acad_titles{
+    font-family: 'Times New Roman';
+    font-size: 45px;
+ 
+}
+
+.mario{
+
+    font-family: 'Press Start 2P', system-ui;
+    font-size: 25px;
+    border-right: 4px solid;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    animation:
+        /* typing 2s steps(17), */
+        cursor .4s step-end infinite alternate;
+}
+
+.MNIST{
+    
+    font-family: 'Boldonse', system-ui;
+    font-size: 25px;
+    border-right: 4px solid;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    animation:
+        /* typing 2s steps(17), */
+        cursor .4s step-end infinite alternate;
 }
 
 .chess{
@@ -177,107 +248,6 @@ a{
         cursor .4s step-end infinite alternate;
 }
 
-.pieces{
-    font-size: 50px;
-}
-
-.sequential{
-    opacity: 0;
-    animation:
-        sequential 1s ease-in-out forwards;  
-}
-
-
-
-.sign{
-    
-    font-family: 'Nanum Pen Script', cursive;
-    font-size: 100px;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 4px solid;
-    width: 100%;
-    animation:
-        typing 1.5s steps(11),
-        cursor .4s step-end infinite alternate;
-        
-}
-
-.sign_header{
-    
-    position: relative;
-    margin-left: 3%;
-    font-family: 'Nanum Pen Script', cursive;
-    font-size: 50px;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 100%;
-    color: antiquewhite;
-
-}
-
-
-
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-items: space-between;
-    align-items: center;
-    transition: 0.6s;
-    padding: 1% 1%;
-    z-index: 9999;
-    background-color: #010002;
-}
-
-
-
-header ul{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-header ul li{
-    position: relative;
-    list-style: none;
-    width: 150px;
-}
-
-header ul li a{
-    position: relative;
-    margin: 0 10%;
-    text-decoration: none;
-    color: antiquewhite;
-}
-
-@keyframes cursor{
-    50%{
-        border-color: transparent;
-    }
-}
-
-@keyframes typing{
-    from{
-        width: 0;
-    }
-}
-
-@keyframes sequential {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .bat{
     font-family: 'Bangers', cursive;
     font-size: 50px;
@@ -302,20 +272,156 @@ header ul li a{
         cursor .4s step-end infinite alternate;
 }
 
-footer{
-    display: grid;
-    height: 60px;
-    bottom: 0;
-    left: 0;
+.sign{
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid;
     width: 100%;
-    justify-items: center;
-    align-items: center;
-    transition: 0.6s;
-    padding: 1% 1%;
-    z-index: 9999;
-    background-color: #010002;
+    animation:
+        typing 1.5s steps(11),
+        cursor .4s step-end infinite alternate;
+        
 }
 
-#board {
-    background-color: black;
+.sign_header{
+    position: relative;
+    margin-left: 3%;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    color: antiquewhite;
 }
+
+.pieces{
+    font-size: 50px;
+}
+
+/* ---------------------- */
+/*        UTILITIES       */
+/* ---------------------- */
+.hidden{
+    opacity: 0.1;
+    filter: blur(10px);
+    /* transform: translateX(-100%); */
+    transition: all 2s ;
+    transition-delay: 0.5s;
+
+}
+
+.desc_pic{
+    
+}
+
+.mario_none{
+    display: none;
+
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.sequential{
+    opacity: 0;
+    animation:
+        sequential 1s ease-in-out forwards;  
+}
+
+
+/* ---------------------- */
+/*        MNIST QUERY     */
+/* ---------------------- */
+
+.elevation {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .card {
+    background: #f6cfcf;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 16px;
+    margin-top: 10%;
+
+  }
+  
+  .canvas {
+    background: #fff3f3;
+    border-radius: 4px;
+    height: 140px;
+    width: 140px;
+    
+  }
+  
+  .button {
+    background-color: #6d0000;
+    border-radius: 4px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 1px 5px 0 rgba(0, 0, 0, 0.12), inset 0 0 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    line-height: 36px;
+    margin: 16px 0;
+    text-align: center;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    width: 140px;
+  }
+  
+  .button:hover {
+    background: #c60000;
+  }
+  
+  .button:active {
+    box-shadow: 0 0 rgba(0, 0, 0, 0.2), 0 0 rgba(0, 0, 0, 0.14),
+      0 0 rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .predictions {
+    display: flex;
+  }
+  
+  .prediction-col {
+    padding: 0 2px;
+  }
+  
+  .prediction-bar-container {
+    background: #f5f5f5;
+    height: 140px;
+    width: 10px;
+    position: relative;
+  }
+  
+  .prediction-bar {
+    background: #e0e0e0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .prediction-number {
+    color: #bdbdbd;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .top-prediction .prediction-bar {
+    background: #05005f;
+  }
+  
+  .top-prediction .prediction-number {
+    color: #00c94a;
+    font-weight: bold;
+  }
