@@ -21,6 +21,8 @@ const observer = new IntersectionObserver((entries) => {
 
 
 
+
+
 // m_title = document.getElementById('m_title');
 // m_sec = document.getElementById('m_sec');
 // if(m_sec.classList.contains('show')){

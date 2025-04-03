@@ -483,8 +483,14 @@ img {
     }
 
     .sign {
+        
         animation: none;
         border-right: none;
+        font-size: calc(5vw + 1rem);
+    }
+
+    canvas {
+        touch-action: none;
     }
 
     footer{
