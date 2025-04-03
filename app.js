@@ -35,3 +35,16 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el))
+
+// Hamburger toggle functionality
+document.getElementById('hamburger').addEventListener('click', () => {
+    console.log("Hamburger clicked");
+    document.getElementById('nav-menu').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+});
+
+// Close the menu if the overlay is clicked
+document.getElementById('overlay').addEventListener('click', () => {
+    document.getElementById('nav-menu').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+});
