@@ -480,6 +480,7 @@ img {
         overflow-wrap: break-word;
         text-align: center;        /* Centre the text */
         border-right: none;
+        transition: opacity 1s ease-in;
     }
 
     .sign {
@@ -489,8 +490,12 @@ img {
         font-size: calc(5vw + 1rem);
     }
 
-    canvas {
-        touch-action: none;
+    .card {
+        display:none;
+    }
+
+    .MNIST_vid{
+        width: 100%;
     }
 
     footer{
