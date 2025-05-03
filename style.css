@@ -125,7 +125,8 @@ header ul{
 header ul li{
     position: relative;
     list-style: none;
-    width: 150px;
+    width: auto;
+    flex: 0 1 auto;        /* allow shrinking/growing only as needed */
 }
 
 header ul li a{
@@ -460,11 +461,34 @@ img {
 
 /* Adjust the navigation menu styling */
 #nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-right: 20px; /* moved from inline style */
+    display: flex;               
+    justify-content: flex-end;   
+    gap: 20px;                   
+    padding-right: 20px;         
 }
+
+#nav-menu li{
+    flex: 0 0 auto;
+}
+
+#nav-menu li a {
+    display: inline-block;     /* allow padding to expand width */
+    white-space: nowrap;       /* prevent wrapping */
+    padding: 0.2em 0.4em;        /* adjust horizontal padding to taste */
+    text-align: center;
+  }
+
+  .acad_titles,
+  .paper_title {
+    display: block;       /* <p> is already block, but safe if you ever change it */
+    text-align: center;   /* center-align wrapped lines */
+  }
+
+/* ------------------------------------------------------------------------------------------------ 
+   *  Mobile Styles
+   *  This section contains styles that are applied when the viewport width is 900px or less.
+   *  It includes adjustments for text alignment, font sizes, and layout changes for smaller screens.
+   * ------------------------------------------------------------------------------------------------ */
 
 /* Mobile-specific styles */
 @media (max-width: 900px) {
