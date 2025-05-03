@@ -6,59 +6,71 @@
   <title>Papers</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
+  <script src="paper_timeline.js" defer></script>
 </head>
 <body>
   
   <div id="site-header"></div>
 
-  <section style="min-height: auto; padding-bottom: 0%; padding-top: 30vh;">
+  <section style="min-height: auto; padding-bottom: 0%; padding-top: 30vh; padding-bottom: 5%;">
     <p class="sequential" style="animation-delay: 0s; text-align: center;">
       A showcase of AI research papers and my implementations.
     </p>
-    <p class="sequential" style="animation-delay: 0.5s; text-align: center;">
-      Scroll Down ↓
-    </p>
   </section>
 
-  <!-- Paper I -->
-  <section class="show" id="paper1">
-    <!-- Project header and sub-heading -->
-    <h2>AlexNet : 2012</h2>
-    <h3 class="paper_title">ImageNet Classification with Deep Convolutional Neural Networks</h3>
-    <!-- Placeholder image of it working -->
-    <img src="alexnet_demo.png" alt="AlexNet demo" width="75%" style="display:block; margin:auto;" />
-    <!-- Description under construction -->
-    <p class="desc">Under construction.</p>
-    <!-- Codebase / demo link placeholder -->
-    <p class="desc">
-      <a href="#" target="_blank">Codebase &amp; Demo (link to be added)</a>
-    </p>
-    <div class="sec_border"></div>
-  </section>
-
-  <!-- Paper II -->
-  <section class="show" id="paper2">
-    <h2>DDPG : 2015</h2>
-    <h3 class="paper_title">Continuous Control with Deep Reinforcement Learning</h3>
-    <img src="ddpg_demo.png" alt="DDPG demo" width="75%" style="display:block; margin:auto;" />
-    <p class="desc">Under construction.</p>
-    <p class="desc">
-      <a href="#" target="_blank">Codebase &amp; Demo (link to be added)</a>
-    </p>
-    <div class="sec_border"></div>
-  </section>
-
-  <!-- Paper III -->
-  <section class="show" id="paper3">
-    <h2>Attention : 2017</h2>
-    <h3 class="paper_title">Attention Is All You Need</h3>
-    <img src="attention_demo.png" alt="Transformer demo" width="75%" style="display:block; margin:auto;" />
-    <p class="desc">Under construction.</p>
-    <p class="desc">
-      <a href="#" target="_blank">Codebase &amp; Demo (link to be added)</a>
-    </p>
-    <div class="sec_border"></div>
-  </section>
+  
+  <div class="timeline-wrapper">
+    <button id="prevBtn" class="timeline-btn prev" aria-label="Previous paper">‹</button>
+  
+    <div class="timeline">
+      <!-- Paper I -->
+      <section class="timeline-item" id="paper1">
+          <!-- Project header and sub-heading -->
+          <span class="paper_year"> 2012 </span>
+          <span class="paper_title">AlexNet</span>
+          <h3 class="paper_description">ImageNet Classification with Deep Convolutional Neural Networks</h3>
+          
+          <!-- Placeholder image of it working -->
+          <img src="paperDemos/alexnet_demo.png" alt="AlexNet demo" width="75%" style="display:block; margin:auto;" />
+          
+          <!-- Description under construction -->
+          <p class="desc">Under construction.</p>
+          <!-- Codebase / demo link placeholder -->
+          <p class="desc">
+            <a href="#" target="_blank">Codebase &amp; Demo (link to be added)</a>
+          </p>
+          <div class="sec_border"></div>
+      </section>
+  
+      <!-- Paper II -->
+      <section class="timeline-item" id="paper2">
+          <span class="paper_year">2015</span>
+          <span class="paper_title">DDPG</span>
+          <h3 class="paper_description">Continuous Control with Deep Reinforcement Learning</h3>
+          <img src="ddpg_demo.png" alt="DDPG demo" width="75%" style="display:block; margin:auto;" />
+          <p class="desc">Under construction.</p>
+          <p class="desc">
+            <a href="#" target="_blank">Codebase &amp; Demo (link to be added)</a>
+          </p>
+          <div class="sec_border"></div>
+      </section>
+  
+      <!-- Paper III -->
+      <section class="timeline-item" id="paper3">
+          <span class="paper_year">2017</span>
+          <span class="paper_title">Attention</span>
+          <h3 class="paper_description">Attention Is All You Need</h3>
+          <img src="attention_demo.png" alt="Transformer demo" width="75%" style="display:block; margin:auto;" />
+          <p class="desc">Under construction.</p>
+          <p class="desc">
+            <a href="#" target="_blank">Codebase &amp; Demo (link to be added)</a>
+          </p>
+          <div class="sec_border"></div>
+      </section>
+    </div>
+  
+    <button id="nextBtn" class="timeline-btn next" aria-label="Next paper">›</button>
+  </div>
 
  
   <div id="site-footer"></div>

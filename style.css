@@ -9,6 +9,23 @@
 
 /* Path: style.css */
 
+
+/* ---------------------- */
+/*       FONTS            */
+/* ---------------------- */
+
+/* style.css */
+
+@font-face {
+    font-family: 'Caster';           /* the name you’ll use in font-family */
+    src: url('fonts/Caster.ttf')      /* path to your TTF file */
+         format('truetype');                /* tells the browser it’s a TrueType font */
+    font-weight: normal;                    /* optional: normal | bold | numeric */
+    font-style: normal;                     /* optional: normal | italic | oblique */
+    font-display: swap;                     /* ensures text remains visible while loading */
+  }
+  
+
 /* ---------------------- */
 /*       KEYFRAMES        */
 /* ---------------------- */
@@ -315,8 +332,8 @@ img {
     opacity: 0.1;
     filter: blur(10px);
     /* transform: translateX(-100%); */
-    transition: all 2s ;
-    transition-delay: 0.5s;
+    transition: all 1s ;
+    transition-delay: 0.1s;
 
 }
 
@@ -475,6 +492,115 @@ img {
     text-align: center;   /* center-align wrapped lines */
   }
 
+    /* ---------------------- */
+    /*     PAPER GALLEY       */
+    /* ---------------------- */
+
+    .paper_title{
+        display: inline-block;
+        font-family: 'Caster', system-ui;
+        font-size: 36px;
+        white-space: nowrap;
+        width: auto;
+        overflow: hidden;
+        z-index: 1;
+        background-color: #010002;
+        margin-bottom: 10%;
+    }
+    
+    .paper_year{
+        display: inline-block;
+        font-family: 'Caster', system-ui;
+        font-size: 72px;
+        text-align: center;
+        white-space: nowrap;
+        width: auto;
+        padding-left: 1%;
+        padding-right: 1%;
+        overflow: hidden;
+        margin-bottom: 1%;
+        position: relative;  /* establish positioning context */
+        z-index: 1;
+        background-color: #010002;
+    }
+
+  .timeline-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 16%;            /* vertically center the 2px line on the number */
+    left: 0;
+    right: 0;
+    height: 2px;         /* thickness of the timeline line */
+    background: white;   /* line color */
+    z-index: 0;          /* behind the .paper_year text */
+  }
+  
+
+      
+
+    /* ---------------------- */
+    /*     PAPER TIMELINE     */
+    /* ---------------------- */
+
+/* TIMELINE LAYOUT */
+.timeline-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 2rem auto;
+  }
+  
+  /* The “track” */
+  .timeline {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+  
+  /* Each paper takes full viewport width */
+  .timeline-item {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 0 15%;
+    position: relative;
+  }
+  /* NAV BUTTONS */
+  .timeline-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,1);
+    color: antiquewhite;
+    border: none;
+    font-size: 2rem;
+    width: 2.5em;
+    height: 2.5em;
+    cursor: url('cursors/cursor_link.cur'),pointer;
+    z-index: 2;
+  }
+  .timeline-btn.prev { left: 2.5%; }
+  .timeline-btn.next { right: 2.5%; }
+  .timeline-btn:disabled {
+    opacity: 0;
+    cursor: default;
+  }
+
+/*———————————————————————————————*/
+/*  Top-align timeline cards (beat the global section rule) */
+/*———————————————————————————————*/
+
+/* Select the <section class="timeline-item"> inside your .timeline */
+.timeline-wrapper .timeline .timeline-item {
+    display: flex    !important;  /* kill the grid */
+    flex-direction: column !important;  /* stack from top */
+    justify-content: flex-start !important; /* push contents to the top */
+    align-items: center    !important; /* still center horizontally */
+    min-height: 0    !important;  /* undo the 100vh */
+    padding-top: 2rem !important; /* whatever top spacing you like */
+  }
+
+  
+  
+
 /* ------------------------------------------------------------------------------------------------ 
    *  Mobile Styles
    *  This section contains styles that are applied when the viewport width is 900px or less.
@@ -574,6 +700,7 @@ img {
     /* Ensure the hamburger stays visible */
     .hamburger {
         display: flex;
+        cursor: url('cursors/cursor_link.cur'),pointer;
     }
     
     /* Optionally adjust the header layout */
