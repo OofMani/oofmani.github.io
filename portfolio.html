@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome!</title>
+
+    <meta
+    name="description"
+    content="Aditya Mani’s portfolio: projects in handwriting recognition, Super Mario AI, self-driving car genetics, chess engine, iHear smart hearing aid, Bat Sense, and more."
+   >
+    <meta name="keywords" content="Aditya Mani, portfolio, projects, handwriting recognition, Super Mario AI, self-driving car genetics, chess engine, iHear smart hearing aid, Bat Sense">
+    <meta name="author" content="Aditya Mani">
+
+    
     <link rel="stylesheet" href="style.css">
     <script defer src="app.js"></script>
 </head>
 
 <body>
     <div id="site-header"></div>
+    <main>
     <section style="min-height: 50vh;">   
         <h1 class="sequential" style="padding-top: 10vh;" >Hello World! </h1>
         <h1 class="sequential" style="animation-delay: 1s;">I'm Aditya Mani, and this is my project portfolio!</h1>
@@ -21,7 +31,7 @@
 
     </section>
 
-    <section class="hidden" id = "m_sec">
+    <section class="hidden">
 
         <h2>Project 1:</h2>
 
@@ -32,7 +42,7 @@
         <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
         
         <div class="MNIST_Container" style="align-self: center;">
-            <video src="MNIST.mp4" autoplay muted loop width="75%" style = "display: inline-block;" class = "MNIST_vid"></video>
+            <video src="MNIST.mp4" autoplay muted loop width="75%" style = "display: inline-block;" class = "MNIST_vid" loading="lazy"></video>
 
             
             <div class="card elevation">
@@ -131,12 +141,12 @@
     <script src="MNIST_script.js"></script>
       
     
-    <section class="hidden" id = "m_sec">
+    <section class="hidden">
         <h2>Project 2:</h2>
         <div class="mario_title">
             <p class = "mario" id = "m_title">Super Mario Bros!</p>
         </div>
-        <video src="mario_rec.mp4" autoplay muted loop width="100%"></video>
+        <video src="mario_rec.mp4" autoplay muted loop width="100%" loading="lazy"></video>
         <br>
         <p class="desc">I created a Deep Q learning algorithm for an AI agent to solve Super Mario Bros. The neural network rewards the agent
             for progressing forward in the least time. This is a video showcasing the earlier generations of the system. Through this project, 
@@ -153,7 +163,7 @@
         <div class="Reckless Driver">
             <p class = "selfdriving" id = "c_title">Reckless Driving </p>
         </div>
-        <video src="car_trimmed.mp4" autoplay muted loop width="100%"></video>
+        <video src="car_trimmed.mp4" autoplay muted loop width="100%" loading="lazy"></video>
         <p class="desc">I designed a self-driving algorithm implementaion that drives a car super fast and avoids
             other cars on the highway. The project uses a genetic neural network to learn how to avoid cars. This project was built entirely
             in JavaScript without using any libraries. This project uses a very intuitive approach to Neural Network Design, and greatly furthered
@@ -203,6 +213,6 @@
     <div id="site-footer"></div>
 
     <div id="overlay"></div>
-
+</main>
 </body>
 </html>
