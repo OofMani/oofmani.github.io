@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Papers</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+  <script src="paper_timeline.js" defer></script>
+</head>
+<body>
+  
+  <div id="site-header"></div>
+
+  <section style="min-height: auto; padding-top: 30vh; padding-bottom: 5%;">
+    <p class="sequential" style="animation-delay: 0s; text-align: center;">
+      A showcase of AI research papers and my implementations.
+    </p>
+  </section>
+
+  <div class="timeline-wrapper">
+    <div class="timeline">
+
+      <!-- Paper I: AlexNet -->
+      <section class="timeline-item" id="paper1">
+        <span class="paper_year">2012</span>
+        <span class="paper_title">AlexNet</span>
+        <h3 class="paper_description">
+          ImageNet Classification with Deep Convolutional Neural Networks
+        </h3>
+
+        <!-- 1. Paper summary -->
+        <p class="desc">
+          AlexNet (2012) introduced ReLU activations, overlapping max-pooling, and dropout regularization—achieving a breakthrough on the ImageNet challenge.
+        </p>
+
+        <!-- 2-column model showcase -->
+        <div class="model-showcase">
+          <div class="model-text">
+            <h4>The built model</h4>
+            <p>
+              I reconstructed AlexNet with modern tweaks (BatchNorm instead of LRN, smaller strides in later convs) to speed up convergence and improve stability on cats-vs-dogs.  
+              The 11×11 first layer captures coarse features; deeper 3×3 layers refine patterns; and two 4096-unit dense layers with dropout prevent overfitting.
+            </p>
+
+            <ul class="desc">
+              <li><strong>Conv1 (11×11, s=4):</strong> large receptive field for coarse features.</li>
+              <li><strong>ReLU + BatchNorm:</strong> faster convergence vs. LRN.</li>
+              <li><strong>MaxPool (3×3, s=2):</strong> reduces spatial dims with slight overlap.</li>
+              <li><strong>Conv2–5:</strong> smaller kernels (5×5 then 3×3) to build up complex features.</li>
+              <li><strong>Dense (4096→4096):</strong> high-capacity fully connected layers with 50% dropout to prevent overfitting.</li>
+              <li><strong>Output (1, sigmoid):</strong> binary cat vs. dog classification.</li>
+            </ul>
+          </div>
+          <div class="model-diagram">
+            <img
+              src="paperDemos/AlexNET/alexnet_arch_1.png" 
+              alt="Horizontal AlexNet architecture diagram" 
+            />
+            <img
+            src="paperDemos/AlexNET/alexnet_arch_2.png" 
+            alt="Horizontal AlexNet architecture diagram" 
+          />
+          </div>
+        </div>
+
+        <!-- 3. Layer-by-layer rationale -->
+        
+
+        <!-- Grad-CAM intro -->
+        <div class="gradcam-intro">
+          <h4>Feature-attention gallery</h4>
+          <p>
+            Hover over each image to see the Grad-CAM overview, which highlights the regions in the input that most activated the network’s final convolutional layer—revealing exactly where the model focused its attention.
+          </p>
+
+          <p>
+            The Grad-CAM technique uses the gradients of the target class flowing into the final convolutional layer to produce a coarse localization map highlighting the important regions in the image for predicting the class.
+            The more red the region, the more important it is for the prediction.
+        </div>
+        
+
+        <!-- 4. Grad-CAM gallery (2×3 grid) -->
+        <div class="gradcam-grid">
+          <div class="gradcam-cell">
+            <div class="img-container">
+              <img src="paperDemos/AlexNET/gradCAM/test_img1.png" class="base-img" alt="Sample 1"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam1.png" class="heatmap-img" alt="Overlay 1"/>
+            </div>
+            <p class="desc" style="text-align: center;">"Cat" ~ 0.98 Confidence</p>
+          </div>
+          <div class="gradcam-cell">
+            <div class="img-container">
+              <img src="paperDemos/AlexNET/gradCAM/test_img2.png" class="base-img" alt="Sample 2"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam2.png" class="heatmap-img" alt="Overlay 2"/>
+            </div>
+            <p class="desc" style="text-align: center;">"Cat" ~ 0.78 Confidence</p>
+          </div>
+          <div class="gradcam-cell">
+            <div class="img-container">
+              <img src="paperDemos/AlexNET/gradCAM/test_img3.png" class="base-img" alt="Sample 3"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam3.png" class="heatmap-img" alt="Overlay 3"/>
+            </div>
+            <p class="desc" style="text-align: center;">"Cat" ~ 0.91 Confidence</p>
+          </div>
+          <div class="gradcam-cell">
+            <div class="img-container">
+              <img src="paperDemos/AlexNET/gradCAM/test_img4.png" class="base-img" alt="Sample 4"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam4.png" class="heatmap-img" alt="Overlay 4"/>
+            </div>
+            <p class="desc" style="text-align: center;">"Dog" ~ 0.99 Confidence</p>
+          </div>
+          <div class="gradcam-cell">
+            <div class="img-container">
+              <img src="paperDemos/AlexNET/gradCAM/test_img5.png" class="base-img" alt="Sample 5"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam5.png" class="heatmap-img" alt="Overlay 5"/>
+            </div>
+            <p class="desc" style="text-align: center;">"Dog" ~ 0.77 Confidence</p>
+          </div>
+          <div class="gradcam-cell">
+            <div class="img-container">
+              <img src="paperDemos/AlexNET/gradCAM/test_img6.png" class="base-img" alt="Sample 6"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam6.png" class="heatmap-img" alt="Overlay 6"/>
+            </div>
+            <p class="desc" style="text-align: center;">"Cat" ~ 0.70 Confidence</p>
+          </div>
+        </div>
+        
+
+        <!-- 5. Code/demo link -->
+        <p class="desc">
+          <a href="YOUR_ALEXNET_CODE_URL" target="_blank">
+            Codebase &amp; Demo
+          </a>
+        </p>
+
+        <div class="sec_border"></div>
+      </section>
+
+      <!-- Paper II -->
+      <section class="timeline-item" id="paper2">
+        <span class="paper_year">2015</span>
+        <span class="paper_title">DDPG</span>
+        <h3 class="paper_description">Continuous Control with Deep Reinforcement Learning</h3>
+        <img src="ddpg_demo.png" alt="DDPG demo" width="75%" style="display:block; margin:auto;" />
+        <p class="desc">Under construction.</p>
+        <p class="desc">
+          <a href="#" target="_blank">Codebase &amp; Demo (link to be added)</a>
+        </p>
+        <div class="sec_border"></div>
+      </section>
+
+      <!-- Paper III -->
+      <section class="timeline-item" id="paper3">
+        <span class="paper_year">2017</span>
+        <span class="paper_title">Attention</span>
+        <h3 class="paper_description">Attention Is All You Need</h3>
+        <img src="attention_demo.png" alt="Transformer demo" width="75%" style="display:block; margin:auto;" />
+        <p class="desc">Under construction.</p>
+        <p class="desc">
+          <a href="#" target="_blank">Codebase &amp; Demo (link to be added)</a>
+        </p>
+        <div class="sec_border"></div>
+      </section>
+
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <div id="overlay"></div>
+</body>
+</html>

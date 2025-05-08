@@ -9,6 +9,23 @@
 
 /* Path: style.css */
 
+
+/* ---------------------- */
+/*       FONTS            */
+/* ---------------------- */
+
+/* style.css */
+
+@font-face {
+    font-family: 'Caster';           /* the name you’ll use in font-family */
+    src: url('fonts/Caster.ttf')      /* path to your TTF file */
+         format('truetype');                /* tells the browser it’s a TrueType font */
+    font-weight: normal;                    /* optional: normal | bold | numeric */
+    font-style: normal;                     /* optional: normal | italic | oblique */
+    font-display: swap;                     /* ensures text remains visible while loading */
+  }
+  
+
 /* ---------------------- */
 /*       KEYFRAMES        */
 /* ---------------------- */
@@ -36,17 +53,6 @@
     }
 }
 
-@keyframes cursor{
-    50%{
-        border-color: transparent;
-    }
-}
-
-@keyframes typing{
-    from{
-        width: 0;
-    }
-}
 
 @keyframes sequential {
     0% {
@@ -71,15 +77,17 @@ body {
     font-family: 'Source Code Pro', monospace;
     color: antiquewhite;
     background: linear-gradient(45deg,#030001, #010002);
-
     padding: 0;
     margin: 0;
+    cursor: url('cursors/cursor.cur') 0 0, auto;
 }
+
 
 a{
     color: aqua;
     background-color: transparent;
     text-decoration: none;
+    cursor: url('cursors/cursor_link.cur') 0 0, pointer;
 }
 
 section {
@@ -125,7 +133,8 @@ header ul{
 header ul li{
     position: relative;
     list-style: none;
-    width: 150px;
+    width: auto;
+    flex: 0 1 auto;        /* allow shrinking/growing only as needed */
 }
 
 header ul li a{
@@ -323,8 +332,8 @@ img {
     opacity: 0.1;
     filter: blur(10px);
     /* transform: translateX(-100%); */
-    transition: all 2s ;
-    transition-delay: 0.5s;
+    transition: all 1s ;
+    transition-delay: 0.1s;
 
 }
 
@@ -460,11 +469,295 @@ img {
 
 /* Adjust the navigation menu styling */
 #nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-right: 20px; /* moved from inline style */
+    display: flex;               
+    justify-content: flex-end;   
+    gap: 20px;                   
+    padding-right: 20px;         
 }
+
+#nav-menu li{
+    flex: 0 0 auto;
+}
+
+#nav-menu li a {
+    display: inline-block;     /* allow padding to expand width */
+    white-space: nowrap;       /* prevent wrapping */
+    padding: 0.2em 0.4em;        /* adjust horizontal padding to taste */
+    text-align: center;
+  }
+
+  .acad_titles,
+  .paper_title {
+    display: block;       /* <p> is already block, but safe if you ever change it */
+    text-align: center;   /* center-align wrapped lines */
+  }
+
+    /* ---------------------- */
+    /*     PAPER GALLEY       */
+    /* ---------------------- */
+
+    .paper_title{
+        display: inline-block;
+        font-family: 'Caster', system-ui;
+        font-size: 36px;
+        white-space: nowrap;
+        width: auto;
+        overflow: hidden;
+        z-index: 1;
+        background-color: #010002;
+        margin-bottom: 10%;
+    }
+    
+    .paper_year{
+        display: inline-block;
+        font-family: 'Caster', system-ui;
+        font-size: 72px;
+        text-align: center;
+        white-space: nowrap;
+        width: auto;
+        padding-left: 1%;
+        padding-right: 1%;
+        overflow: hidden;
+        margin-bottom: 1%;
+        position: relative;  /* establish positioning context */
+        z-index: 1;
+        background-color: #010002;
+    }
+
+  .timeline-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 4.5em;            /* vertically center the 2px line on the number */
+    left: 0;
+    right: 0;
+    height: 2px;         /* thickness of the timeline line */
+    background: white;   /* line color */
+    z-index: 0;          /* behind the .paper_year text */
+  }
+
+      /* ---------------------- */
+    /*    GRADCAM LOGIC        */
+    /* ---------------------- */
+
+    /* Container for the 2×3 Grad-CAM grid */
+.gradcam-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+  
+  /* Each cell holds the base image + overlay */
+  .gradcam-cell {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Base image sits below */
+  .gradcam-cell .base-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Heatmap overlay hidden by default with circular clip */
+  .gradcam-cell {
+    /* make sure the cell itself provides the CSS vars */
+    --mouse-x: 50% ;
+    --mouse-y: 50% ;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gradcam-cell .heatmap-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  
+    /* use a radial-gradient mask instead of clip-path */
+    -webkit-mask-image: radial-gradient(
+      circle 200px at var(--mouse-x) var(--mouse-y),
+      rgba(0,0,0,1) 20%,
+      rgba(0,0,0,0) 100%
+    );
+    mask-image: radial-gradient(
+      circle 200px at var(--mouse-x) var(--mouse-y),
+      rgba(0,0,0,1) 20%,
+      rgba(0,0,0,0) 100%
+    );
+  
+    /* ensure the overlay itself doesn’t block mouse events */
+    pointer-events: none;
+  }
+
+  .img-container {
+    position: relative;
+    width: 100%;
+    /* height is determined by the base image */
+  }
+  
+  .img-container .base-img,
+  .img-container .heatmap-img {
+    display: block;
+    width: 100%;
+    height: auto;          /* preserve aspect ratio */
+  }
+  
+  .img-container .heatmap-img {
+    position: absolute;
+    top: 0; left: 0;
+    pointer-events: none;  /* so your mousemove still hits the container */
+    /* mask / clip-path rules go here */
+  }
+  
+  
+
+  /* ── Model showcase 2-col ── */
+/* ── Model showcase 2-col ── */
+.model-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 75%;
+    margin: 2rem auto;
+}
+
+.model-text {
+    flex: 1 1 300px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.model-text h4 {
+    font-family: 'Arvo', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.model-diagram {
+    /* NEW: switch from block to flex so children sit on one row */
+    display: flex;
+    flex-wrap: wrap;        /* allow wrapping on narrow screens */
+    justify-content: center;
+    gap: 1rem;              /* space between the two halves */
+    flex: 1 1 400px;        /* share row evenly with the text */
+}
+
+.model-diagram img {
+    /* NEW: let each diagram take ~45% of the row, preserving aspect ratio */
+    flex: 1 1 45%;
+    max-width: 20em;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 0.5rem;
+}
+
+  /* ── Grad-CAM intro styling ── */
+  .gradcam-intro {
+    width: 75%;
+    margin: 1rem auto 0;
+    text-align: center;
+    color: #ccc;
+  }
+  .gradcam-intro h4 {
+    font-family: 'Arvo', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+  .gradcam-intro p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* ── Cursor-following clip ── */
+  /* override the fixed-center version */
+  .gradcam-cell .heatmap-img {
+    clip-path: circle(0 at 0 0);
+    transition: clip-path 0s;
+  }
+  /* disable the hover:center rule */
+  .gradcam-cell:hover .heatmap-img { clip-path: none; }
+  
+  
+  
+
+      
+
+    /* ---------------------- */
+    /*     PAPER TIMELINE     */
+    /* ---------------------- */
+
+/* TIMELINE LAYOUT */
+.timeline-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 2rem auto;
+  }
+  
+  /* The “track” */
+  .timeline {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+  
+  /* Each paper takes full viewport width */
+  .timeline-item {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 0 15%;
+    position: relative;
+  }
+  /* NAV BUTTONS */
+  .timeline-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,1);
+    color: antiquewhite;
+    border: none;
+    font-size: 2rem;
+    width: 2.5em;
+    height: 2.5em;
+    cursor: url('cursors/cursor_link.cur'),pointer;
+    z-index: 2;
+  }
+  .timeline-btn.prev { left: 2.5%; }
+  .timeline-btn.next { right: 2.5%; }
+  .timeline-btn:disabled {
+    opacity: 0;
+    cursor: default;
+  }
+
+/*———————————————————————————————*/
+/*  Top-align timeline cards (beat the global section rule) */
+/*———————————————————————————————*/
+
+/* Select the <section class="timeline-item"> inside your .timeline */
+.timeline-wrapper .timeline .timeline-item {
+    display: flex    !important;  /* kill the grid */
+    flex-direction: column !important;  /* stack from top */
+    justify-content: flex-start !important; /* push contents to the top */
+    align-items: center    !important; /* still center horizontally */
+    min-height: 0    !important;  /* undo the 100vh */
+    padding-top: 2rem !important; /* whatever top spacing you like */
+  }
+
+  
+  
+
+/* ------------------------------------------------------------------------------------------------ 
+   *  Mobile Styles
+   *  This section contains styles that are applied when the viewport width is 900px or less.
+   *  It includes adjustments for text alignment, font sizes, and layout changes for smaller screens.
+   * ------------------------------------------------------------------------------------------------ */
 
 /* Mobile-specific styles */
 @media (max-width: 900px) {
@@ -559,6 +852,7 @@ img {
     /* Ensure the hamburger stays visible */
     .hamburger {
         display: flex;
+        cursor: url('cursors/cursor_link.cur'),pointer;
     }
     
     /* Optionally adjust the header layout */
@@ -567,3 +861,13 @@ img {
     }
 }
 
+.model-diagram {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .model-diagram img {
+    width: 100%;
+    height: auto;
+  }
+  
