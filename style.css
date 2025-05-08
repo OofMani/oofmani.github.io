@@ -527,13 +527,165 @@ img {
   .timeline-wrapper::before {
     content: "";
     position: absolute;
-    top: 16%;            /* vertically center the 2px line on the number */
+    top: 4.5em;            /* vertically center the 2px line on the number */
     left: 0;
     right: 0;
     height: 2px;         /* thickness of the timeline line */
     background: white;   /* line color */
     z-index: 0;          /* behind the .paper_year text */
   }
+
+      /* ---------------------- */
+    /*    GRADCAM LOGIC        */
+    /* ---------------------- */
+
+    /* Container for the 2×3 Grad-CAM grid */
+.gradcam-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+  
+  /* Each cell holds the base image + overlay */
+  .gradcam-cell {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Base image sits below */
+  .gradcam-cell .base-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Heatmap overlay hidden by default with circular clip */
+  .gradcam-cell {
+    /* make sure the cell itself provides the CSS vars */
+    --mouse-x: 50% ;
+    --mouse-y: 50% ;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gradcam-cell .heatmap-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  
+    /* use a radial-gradient mask instead of clip-path */
+    -webkit-mask-image: radial-gradient(
+      circle 200px at var(--mouse-x) var(--mouse-y),
+      rgba(0,0,0,1) 20%,
+      rgba(0,0,0,0) 100%
+    );
+    mask-image: radial-gradient(
+      circle 200px at var(--mouse-x) var(--mouse-y),
+      rgba(0,0,0,1) 20%,
+      rgba(0,0,0,0) 100%
+    );
+  
+    /* ensure the overlay itself doesn’t block mouse events */
+    pointer-events: none;
+  }
+
+  .img-container {
+    position: relative;
+    width: 100%;
+    /* height is determined by the base image */
+  }
+  
+  .img-container .base-img,
+  .img-container .heatmap-img {
+    display: block;
+    width: 100%;
+    height: auto;          /* preserve aspect ratio */
+  }
+  
+  .img-container .heatmap-img {
+    position: absolute;
+    top: 0; left: 0;
+    pointer-events: none;  /* so your mousemove still hits the container */
+    /* mask / clip-path rules go here */
+  }
+  
+  
+
+  /* ── Model showcase 2-col ── */
+/* ── Model showcase 2-col ── */
+.model-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 75%;
+    margin: 2rem auto;
+}
+
+.model-text {
+    flex: 1 1 300px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.model-text h4 {
+    font-family: 'Arvo', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.model-diagram {
+    /* NEW: switch from block to flex so children sit on one row */
+    display: flex;
+    flex-wrap: wrap;        /* allow wrapping on narrow screens */
+    justify-content: center;
+    gap: 1rem;              /* space between the two halves */
+    flex: 1 1 400px;        /* share row evenly with the text */
+}
+
+.model-diagram img {
+    /* NEW: let each diagram take ~45% of the row, preserving aspect ratio */
+    flex: 1 1 45%;
+    max-width: 20em;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 0.5rem;
+}
+
+  /* ── Grad-CAM intro styling ── */
+  .gradcam-intro {
+    width: 75%;
+    margin: 1rem auto 0;
+    text-align: center;
+    color: #ccc;
+  }
+  .gradcam-intro h4 {
+    font-family: 'Arvo', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+  .gradcam-intro p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* ── Cursor-following clip ── */
+  /* override the fixed-center version */
+  .gradcam-cell .heatmap-img {
+    clip-path: circle(0 at 0 0);
+    transition: clip-path 0s;
+  }
+  /* disable the hover:center rule */
+  .gradcam-cell:hover .heatmap-img { clip-path: none; }
+  
+  
   
 
       
@@ -709,3 +861,13 @@ img {
     }
 }
 
+.model-diagram {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .model-diagram img {
+    width: 100%;
+    height: auto;
+  }
+  
