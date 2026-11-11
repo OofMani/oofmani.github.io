@@ -46,5 +46,5 @@ document.querySelectorAll('.gradcam-cell').forEach(cell => {
 
 
 
-// Initialize
-updateTimeline();
+// Initialize (only when the prev/next buttons exist)
+if (prevBtn && nextBtn) updateTimeline();

@@ -18,11 +18,46 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&amp;family=Bangers&amp;family=Boldonse&amp;family=Bruno+Ace&amp;family=Cairo+Play:wght@200..1000&amp;family=Nanum+Pen+Script&amp;family=Press+Start+2P&amp;family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;display=swap">
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://oofmani.com/#person",
+    "name": "Aditya Mani",
+    "url": "https://oofmani.com/",
+    "email": "mailto:theadityamani@gmail.com",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Nanyang Technological University",
+      "url": "https://www.ntu.edu.sg/"
+    },
+    "sameAs": [
+      "https://github.com/OofMani",
+      "https://scholar.google.com/citations?user=o_4ln74AAAAJ"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <div id="site-header"></div>
+  <header>
+      <span class="sign_header">oof, mani!</span>
+      <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+      <ul style="padding-right: 20px;" id="nav-menu">
+          <li><a href="/" class="nav_text">Portfolio</a></li>
+          <li><a href="acad_projects.html" class="nav_text_current" aria-current="page">Academic Projects</a></li>
+          <li><a href="papers.html" class="nav_text">Paper Implementations</a></li>
+          <li><a href="contact_me.html" class="nav_text">Contact Me</a></li>
+      </ul>
+  </header>
 
   <section style="min-height: auto; padding-bottom: 0%; padding-top: 30vh;">
     <h1 class="sequential plain_heading" style="animation-delay: 0s; text-align: center;">
@@ -31,74 +66,68 @@
     <p class="sequential" style="animation-delay: 0.5s;">Scroll Down ↓</p>
   </section>
   
-  <section class="show">
-    <h2>I.</h2>
-    <div class="fyp_title">
-      <h3 class="acad_titles plain_heading" id="fyp_title">Virtual Carving with Haptics - Final Year Project</h3>
-    </div>
-    <video src="FYP_Trimmed.mp4" autoplay muted loop playsinline width="100%" loading="lazy"></video>
-    <p class="desc">
-      My NTU Final Year Project, <em>Virtual Carving Using the Desktop Haptic Device 3DSystems Geomagic Touch</em>
-      (College of Computing and Data Science, supervised by Assoc. Prof. Alexei Sourin). I built a virtual carving
-      system in Unity that couples the Geomagic Touch haptic stylus with the SOFA physics engine through SofaUnity,
-      with real-time 3D stylus tracking, button-triggered carving, and force feedback from a surface-normal penalty
-      model, integrated via the HapticsDirect.dll native wrapper.
-    </p>
-    <p class="desc">
-      To isolate the effect of force feedback itself, I tested it against a working 3D mouse-and-keyboard carving
-      baseline in a counterbalanced within-subjects user study (N=12). With haptics, carving accuracy improved by
-      about 28% and mental workload (NASA-TLX) dropped by about 27%, both significant at p&nbsp;&lt;&nbsp;0.001 with large
-      effect sizes (d&nbsp;=&nbsp;1.45 and 1.88).
-    </p>
-    <p class="desc">
-      <a href="https://hdl.handle.net/10356/214074" target="_blank" rel="noopener">Read the published paper on DR-NTU</a>
-      (2026)
-    </p>
-    <p class="desc">Unity · C# · SOFA · Haptics · HCI · User Study</p>
+  <section class="project">
+      <article class="project-card">
+          <p class="project-label">I.</p>
+          <div class="project-title-wrap">
+              <h2 class="project-title acad_titles plain_heading">Virtual Carving with Haptics - Final Year Project</h2>
+          </div>
+          <div class="project-media">
+          <video src="FYP_Trimmed.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <p class="desc">My NTU Final Year Project, <em>Virtual Carving Using the Desktop Haptic Device 3DSystems Geomagic Touch</em> (College of Computing and Data Science, supervised by Assoc. Prof. Alexei Sourin). I built a virtual carving system in Unity that couples the Geomagic Touch haptic stylus with the SOFA physics engine through SofaUnity, with real-time 3D stylus tracking, button-triggered carving, and force feedback from a surface-normal penalty model, integrated via the HapticsDirect.dll native wrapper.</p>
+          <p class="desc">To isolate the effect of force feedback itself, I tested it against a working 3D mouse-and-keyboard carving baseline in a counterbalanced within-subjects user study (N=12). With haptics, carving accuracy improved by about 28% and mental workload (NASA-TLX) dropped by about 27%, both significant at p&nbsp;&lt;&nbsp;0.001 with large effect sizes (d&nbsp;=&nbsp;1.45 and 1.88).</p>
+          <p class="desc project-links"><a href="https://hdl.handle.net/10356/214074" target="_blank" rel="noopener">Read the published paper on DR-NTU</a> (2026)</p>
+          <p class="project-tags">Unity · C# · SOFA · Haptics · HCI · User Study</p>
+      </article>
   </section>
 
-  <section class="show" id="m_sec">
-    <h2>II.</h2>
-    <div class="mario_title">
-      <h3 class="acad_titles plain_heading" id="m_title">Unreal Engine - Game Design</h3>
-    </div>
-    <video src="UE_Develop.mp4" autoplay muted loop width="100%" loading="lazy"></video>
-    <br>
-    <p class="desc">
-      I am currently learning how to visualize AI-based learning through Game Design tools such as Unreal Engine.
-      This project is a simple demonstration of a 3D environment with a simple AI agent that learns to navigate
-      through the environment. This project greatly furthered my understanding of AI and Game Design.
-    </p>
-    <div class="sec_border"></div>
+  <section class="project">
+      <article class="project-card">
+          <p class="project-label">II.</p>
+          <div class="project-title-wrap">
+              <h2 class="project-title acad_titles plain_heading">Unreal Engine - Game Design</h2>
+          </div>
+          <div class="project-media">
+          <video src="UE_Develop.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <p class="desc">I am currently learning how to visualize AI-based learning through Game Design tools such as Unreal Engine. This project is a simple demonstration of a 3D environment with a simple AI agent that learns to navigate through the environment. This project greatly furthered my understanding of AI and Game Design.</p>
+          <p class="project-tags">Unreal Engine · Game AI</p>
+      </article>
   </section>
-  
-  <section class="show">
-    <h2>III.</h2>
-    <div class="Reckless Driver">
-      <h3 class="acad_titles plain_heading" id="c_title">Checkit - Full Stack Development</h3>
-    </div>
-    <video src="Checkit_Trimmed.mp4" autoplay muted loop width="100%" loading="lazy"></video>
-    <p class="desc">
-      As part of a team project, we created an online platform for users to plan their daily activities.
-      The website uses APIs to calculate the best route for the user to take, and also provides a list of activities
-      that the user can do at the destination. This project was built using HTML, CSS, and JavaScript.
-    </p>
+
+  <section class="project">
+      <article class="project-card">
+          <p class="project-label">III.</p>
+          <div class="project-title-wrap">
+              <h2 class="project-title acad_titles plain_heading">Checkit - Full Stack Development</h2>
+          </div>
+          <div class="project-media">
+          <video src="Checkit_Trimmed.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <p class="desc">As part of a team project, we created an online platform for users to plan their daily activities. The website uses APIs to calculate the best route for the user to take, and also provides a list of activities that the user can do at the destination. This project was built using HTML, CSS, and JavaScript.</p>
+          <p class="project-tags">HTML · CSS · JavaScript · APIs</p>
+      </article>
   </section>
-  
-  <section class="show">
-    <h2>IV.</h2>
-    <div class="chess_title">
-      <h3 class="acad_titles plain_heading" id="c_title">CAMS - Object Oriented Programming</h3>
-    </div>
-    <img src="CAMS (1).jpg" alt="UML diagram of the CAMS orientation camp application" />
-    <p class="desc">
-      As part of a team, I created an intuitive CLI-based application for assigning and reorganizing student groups
-      into various orientation camps. Through this project, I delved into the various parts of the SDLC, and learnt
-      how to code according to user requirements. The UML mockup from the SDLC has been shown above.
-    </p>
+
+  <section class="project">
+      <article class="project-card">
+          <p class="project-label">IV.</p>
+          <div class="project-title-wrap">
+              <h2 class="project-title acad_titles plain_heading">CAMS - Object Oriented Programming</h2>
+          </div>
+          <div class="project-media">
+          <img src="CAMS (1).jpg" alt="UML diagram of the CAMS orientation camp application">
+          </div>
+          <p class="desc">As part of a team, I created an intuitive CLI-based application for assigning and reorganizing student groups into various orientation camps. Through this project, I delved into the various parts of the SDLC, and learnt how to code according to user requirements. The UML mockup from the SDLC has been shown above.</p>
+          <p class="project-tags">Object-Oriented Programming · UML · CLI</p>
+      </article>
   </section>
-  
-  <div id="site-footer"></div>
+
+  <footer>
+      <span>© 2026 Aditya Mani. All rights reserved.</span>
+      <span>Feel free to reach out to me at <a href="mailto:theadityamani@gmail.com" style="color:burlywood;">theadityamani@gmail.com</a>!</span>
+  </footer>
 
 
   <!-- Overlay for mobile menu -->
