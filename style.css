@@ -1,11 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap');
 
 /* Path: style.css */
 
@@ -335,6 +327,94 @@ img {
     transition: all 1s ;
     transition-delay: 0.1s;
 
+}
+
+/* ---------------------- */
+/*     PROJECT CARDS      */
+/* ---------------------- */
+/* Every project on Home and Academic Projects uses the same card:
+   label, display title, media, description, links, tags. */
+section.project{
+    min-height: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.project-card{
+    box-sizing: border-box;
+    width: min(100%, 60rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    row-gap: 1.25rem;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    border: 1px dotted rgba(250, 235, 215, 0.4);
+}
+
+.project-card > *{
+    margin: 0;
+}
+
+.project-label{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.project-label + .project-title-wrap{
+    margin-top: -0.5rem;
+}
+
+.project-title-wrap{
+    max-width: 100%;
+    text-align: center;
+}
+
+.project-title-wrap > .project-title{
+    margin: 0;
+}
+
+.project-media{
+    justify-self: stretch;
+    width: 100%;
+}
+
+.project-media > video,
+.project-media > img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* MNIST demo: video and drawing pad side by side, filling the card */
+.project-media .MNIST_Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.project-media .MNIST_vid{
+    flex: 1 1 0;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+}
+
+.project-media .MNIST_Container .card{
+    flex: 0 0 auto;
+}
+
+.project-card .desc{
+    max-width: 70ch;
+    justify-self: stretch;
+    margin-inline: auto;
+}
+
+.project-tags{
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    color: rgba(250, 235, 215, 0.75);
+    text-align: center;
 }
 
 /* Headings that keep the look of the paragraph they replaced (zero specificity, so classes still win) */
@@ -796,6 +876,15 @@ img {
 
     .MNIST_vid{
         width: 100%;
+    }
+
+    section.project{
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+
+    .project-card{
+        padding: 1.25rem 1rem;
     }
 
     footer{

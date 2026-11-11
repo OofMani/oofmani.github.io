@@ -26,19 +26,54 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&amp;family=Bangers&amp;family=Boldonse&amp;family=Bruno+Ace&amp;family=Cairo+Play:wght@200..1000&amp;family=Nanum+Pen+Script&amp;family=Press+Start+2P&amp;family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;display=swap">
     <link rel="stylesheet" href="style.css">
     <script defer src="app.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://oofmani.com/#person",
+    "name": "Aditya Mani",
+    "url": "https://oofmani.com/",
+    "email": "mailto:theadityamani@gmail.com",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Nanyang Technological University",
+      "url": "https://www.ntu.edu.sg/"
+    },
+    "sameAs": [
+      "https://github.com/OofMani",
+      "https://scholar.google.com/citations?user=o_4ln74AAAAJ"
+    ]
+  }
+  </script>
 </head>
 
 <body>
-    <div id="site-header"></div>
+    <header>
+        <span class="sign_header">oof, mani!</span>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul style="padding-right: 20px;" id="nav-menu">
+            <li><a href="/" class="nav_text_current" aria-current="page">Portfolio</a></li>
+            <li><a href="acad_projects.html" class="nav_text">Academic Projects</a></li>
+            <li><a href="papers.html" class="nav_text">Paper Implementations</a></li>
+            <li><a href="contact_me.html" class="nav_text">Contact Me</a></li>
+        </ul>
+    </header>
     <main>
     <section style="min-height: 50vh;">   
         <h1 style="display: contents;">
             <span class="sequential" style="display: block; margin: 0.67em 0; padding-top: 10vh;">Hello World! </span>
             <span class="sequential" style="display: block; margin: 0.67em 0; animation-delay: 1s;">I'm Aditya Mani, and this is my project portfolio!</span>
         </h1>
-        <p class="sequential" style="animation-delay: 3s;">Or rather, A collection of bugs-turned-features that will surely make you say -</p>
+        <p class="sequential" style="animation-delay: 3s;">Or rather, a collection of bugs-turned-features that will surely make you say -</p>
         <div>
             <p class="sign" id="sign" style="opacity: 0; animation-delay: 5s;">Oof, Mani!</p>
         </div>
@@ -46,186 +81,193 @@
 
     </section>
 
-    <section class="hidden">
-
-        <h2>Project 1:</h2>
-
-        <div class="MNIST_title">
-            <h3 class = "MNIST plain_heading" id = "m_title">Handwriting Recognition</h3>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
+    <section class="hidden project">
+        <article class="project-card">
+            <p class="project-label">Project 1:</p>
+            <div class="project-title-wrap">
+                <h2 class="project-title MNIST plain_heading">Handwriting Recognition</h2>
+            </div>
+            <div class="project-media">
+            <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
         
-        <div class="MNIST_Container" style="align-self: center;">
-            <video src="MNIST.mp4" autoplay muted loop width="75%" style = "display: inline-block;" class = "MNIST_vid" loading="lazy"></video>
+            <div class="MNIST_Container" style="align-self: center;">
+                <video src="MNIST.mp4" autoplay muted loop width="75%" style = "display: inline-block;" class = "MNIST_vid" loading="lazy"></video>
 
             
-            <div class="card elevation">
-            <canvas
-              class="canvas elevation"
-              id="canvas"
-              width="280"
-              height="280"
-            ></canvas>
+                <div class="card elevation">
+                <canvas
+                  class="canvas elevation"
+                  id="canvas"
+                  width="280"
+                  height="280"
+                ></canvas>
 
             
-            <div class="button" id="clear-button">CLEAR</div>
+                <div class="button" id="clear-button">CLEAR</div>
       
-            <div class="predictions">
-              <div class="prediction-col" id="prediction-0">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
-                </div>
-                <div class="prediction-number">0</div>
-              </div>
+                <div class="predictions">
+                  <div class="prediction-col" id="prediction-0">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">0</div>
+                  </div>
       
-              <div class="prediction-col" id="prediction-1">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
-                </div>
-                <div class="prediction-number">1</div>
-              </div>
+                  <div class="prediction-col" id="prediction-1">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">1</div>
+                  </div>
       
-              <div class="prediction-col" id="prediction-2">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
-                </div>
-                <div class="prediction-number">2</div>
-              </div>
+                  <div class="prediction-col" id="prediction-2">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">2</div>
+                  </div>
       
-              <div class="prediction-col" id="prediction-3">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
-                </div>
-                <div class="prediction-number">3</div>
-              </div>
+                  <div class="prediction-col" id="prediction-3">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">3</div>
+                  </div>
       
-              <div class="prediction-col" id="prediction-4">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
-                </div>
-                <div class="prediction-number">4</div>
-              </div>
+                  <div class="prediction-col" id="prediction-4">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">4</div>
+                  </div>
       
-              <div class="prediction-col" id="prediction-5">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
-                </div>
-                <div class="prediction-number">5</div>
-              </div>
+                  <div class="prediction-col" id="prediction-5">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">5</div>
+                  </div>
       
-              <div class="prediction-col" id="prediction-6">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
-                </div>
-                <div class="prediction-number">6</div>
-              </div>
+                  <div class="prediction-col" id="prediction-6">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">6</div>
+                  </div>
       
-              <div class="prediction-col" id="prediction-7">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
-                </div>
-                <div class="prediction-number">7</div>
-              </div>
+                  <div class="prediction-col" id="prediction-7">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">7</div>
+                  </div>
       
-              <div class="prediction-col" id="prediction-8">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
-                </div>
-                <div class="prediction-number">8</div>
-              </div>
+                  <div class="prediction-col" id="prediction-8">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">8</div>
+                  </div>
       
-              <div class="prediction-col" id="prediction-9">
-                <div class="prediction-bar-container">
-                  <div class="prediction-bar"></div>
+                  <div class="prediction-col" id="prediction-9">
+                    <div class="prediction-bar-container">
+                      <div class="prediction-bar"></div>
+                    </div>
+                    <div class="prediction-number">9</div>
+                  </div>
                 </div>
-                <div class="prediction-number">9</div>
-              </div>
+            
+                </div>
             </div>
-            
             </div>
-        </div>
-        <br>
-        <p class="desc">I built and visualized a convolutional neural network in PyTorch to perform handwritten digit recognition on the MNIST dataset. The model was exported to ONNX and integrated into a web interface using ONNX.js for real-time inference. This project enhanced my skills in neural network design, visualization, and deployment.
-        </p>
-        <p class="desc">The full codebase for this project can be found <a href ="https://github.com/OofMani/MNIST_Project" target="_blank" rel="noopener">here.</a></p>
-
-        <div class="sec_border"></div>
+            <p class="desc">I built and visualized a convolutional neural network in PyTorch to perform handwritten digit recognition on the MNIST dataset. The model was exported to ONNX and integrated into a web interface using ONNX.js for real-time inference. This project enhanced my skills in neural network design, visualization, and deployment.</p>
+            <p class="desc project-links">The full codebase for this project can be found <a href="https://github.com/OofMani/MNIST_Project" target="_blank" rel="noopener">here.</a></p>
+            <p class="project-tags">PyTorch · CNN · ONNX · ONNX.js</p>
+        </article>
     </section>
 
     <script src="MNIST_script.js"></script>
-      
-    
-    <section class="hidden">
-        <h2>Project 2:</h2>
-        <div class="mario_title">
-            <h3 class = "mario plain_heading" id = "m_title">Super Mario Bros!</h3>
-        </div>
-        <video src="mario_rec.mp4" autoplay muted loop width="100%" loading="lazy"></video>
-        <br>
-        <p class="desc">I created a Deep Q learning algorithm for an AI agent to solve Super Mario Bros. The neural network rewards the agent
-            for progressing forward in the least time. This is a video showcasing the earlier generations of the system. Through this project, 
-            I gained a thorough understanding of reinforcement learning and incorporating AI agents in game design.
-        </p>
-        <p class="desc">The full codebase for this project can be found <a href ="https://github.com/OofMani/SuperMarioBros" target="_blank" rel="noopener">here.</a></p>
 
-        <div class="sec_border"></div>
-    </section>
-    
-   
-    <section class="hidden">
-        <h2>Project 3:</h2>
-        <div class="Reckless Driver">
-            <h3 class = "selfdriving plain_heading" id = "c_title">Reckless Driving </h3>
-        </div>
-        <video src="car_trimmed.mp4" autoplay muted loop width="100%" loading="lazy"></video>
-        <p class="desc">I designed a self-driving algorithm implementaion that drives a car super fast and avoids
-            other cars on the highway. The project uses a genetic neural network to learn how to avoid cars. This project was built entirely
-            in JavaScript without using any libraries. This project uses a very intuitive approach to Neural Network Design, and greatly furthered
-            my understanding of the same.
-        </p>
-        <p class="desc">The full codebase for this project can be found <a href ="https://github.com/OofMani/SelfDrivingCar" target="_blank" rel="noopener">here.</a> You can also
-        get a live demo right on your browser using <a href="https://oofmani.github.io/SelfDrivingCar" target="_blank">this link.</a></p>
-
+    <section class="hidden project">
+        <article class="project-card">
+            <p class="project-label">Project 2:</p>
+            <div class="project-title-wrap">
+                <h2 class="project-title mario plain_heading">Super Mario Bros!</h2>
+            </div>
+            <div class="project-media">
+                <video src="mario_rec.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <p class="desc">I created a Deep Q-learning algorithm for an AI agent to solve Super Mario Bros. The neural network rewards the agent for progressing forward in the least time. This is a video showcasing the earlier generations of the system. Through this project, I gained a thorough understanding of reinforcement learning and incorporating AI agents in game design.</p>
+            <p class="desc project-links">The full codebase for this project can be found <a href="https://github.com/OofMani/SuperMarioBros" target="_blank" rel="noopener">here.</a></p>
+            <p class="project-tags">Deep Q-Learning · Reinforcement Learning · Game AI</p>
+        </article>
     </section>
 
-
-    <section class="hidden">
-        <h2>Project 4:</h2>
-        <div class="chess_title">
-            <h3 class = "chess plain_heading" id = "c_title">Chess Engine <span class="pieces">♕</span></h3>
-        </div>
-        <img src="chess_ss.png" width="100%" alt="Player playing chess against engine">
-        <p class="desc">I designed a chess engine using a simple min-max algorithm incorporating alpha-beta pruning.</p>
-        <p class="desc">The full codebase for this project can be found <a href ="https://github.com/OofMani/Chess_Engine" target="_blank" rel="noopener">here.</a> Feel free
-        to play a round or two!</p>
-
+    <section class="hidden project">
+        <article class="project-card">
+            <p class="project-label">Project 3:</p>
+            <div class="project-title-wrap">
+                <h2 class="project-title selfdriving plain_heading">Reckless Driving</h2>
+            </div>
+            <div class="project-media">
+                <video src="car_trimmed.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <p class="desc">I designed a self-driving algorithm implementation that drives a car super fast and avoids other cars on the highway. The project uses a genetic neural network to learn how to avoid cars. This project was built entirely in JavaScript without using any libraries. This project uses a very intuitive approach to Neural Network Design, and greatly furthered my understanding of the same.</p>
+            <p class="desc project-links">The full codebase for this project can be found <a href="https://github.com/OofMani/SelfDrivingCar" target="_blank" rel="noopener">here.</a> You can also get a live demo right on your browser using <a href="https://oofmani.github.io/SelfDrivingCar" target="_blank" rel="noopener">this link.</a></p>
+            <p class="project-tags">JavaScript · Neural Networks · Genetic Algorithms</p>
+        </article>
     </section>
 
-    <section class="hidden">
-        <h2>Project 5:</h2>
-        <div class="chess_title">
-            <h3 class = "ihear plain_heading" id = "c_title">iHear: Smart Hearing Aid</h3>
-        </div>
-        <img src="iHear_Web.png" alt="iHear smart hearing aid">
-        <p class="desc">I helped lead a team to design an innovative smart hearing aid, iHear. Through this project, I learnt valuable skills
-            in the form of soldering and PCB design. We have been granted a patent for this project.
-        </p>
-        <p class="desc">The patent documentation for this project can be found <a href ="https://www.quickcompany.in/patents/improved-hearing-aids#documents" target="_blank" rel="noopener">here.</a></p>
-        <p class="desc">(A huge special thanks to <a href= "https://www.linkedin.com/in/tanmay-rai-nanda/" target="_blank">Tanmay</a> for his help with this project!)</p>
+    <section class="hidden project">
+        <article class="project-card">
+            <p class="project-label">Project 4:</p>
+            <div class="project-title-wrap">
+                <h2 class="project-title chess plain_heading">Chess Engine <span class="pieces">♕</span></h2>
+            </div>
+            <div class="project-media">
+                <img src="chess_ss.png" alt="Player playing chess against engine">
+            </div>
+            <p class="desc">I designed a chess engine using a simple min-max algorithm incorporating alpha-beta pruning.</p>
+            <p class="desc project-links">The full codebase for this project can be found <a href="https://github.com/OofMani/Chess_Engine" target="_blank" rel="noopener">here.</a> Feel free to play a round or two!</p>
+            <p class="project-tags">Minimax · Alpha-Beta Pruning</p>
+        </article>
     </section>
-    
-    <section class="hidden">
-        <h2>Project 6:</h2>
-        <div class="bat_title">
-            <h3 class = "bat plain_heading" id = "c_title">Bat Sense!</h3>
-        </div>
-        <img src="https://hackster.imgix.net/uploads/attachments/485415/arduino_ping1_Ct9iXxmZ2p.jpg?auto=compress%2Cformat&w=900&h=675&fit=min" width="60%" alt="Arduino ultrasonic distance sensor used in the Bat Sense project">
-        <p class="desc_small">One of my first ever arduino projects, this project was a simple design uitilising the arduino <br>microcontroller, bluetooh, and a simple ultrasonic sensor.</p>
-        <p class="desc_small">The hackster project for this project can be found <a href ="https://www.hackster.io/97833/bat-sense-9e89a6" target="_blank" rel="noopener">here.</a> <br>This project was completed as a part of ASSET Summer Program 2018.</p>
+
+    <section class="hidden project">
+        <article class="project-card">
+            <p class="project-label">Project 5:</p>
+            <div class="project-title-wrap">
+                <h2 class="project-title ihear plain_heading">iHear: Smart Hearing Aid</h2>
+            </div>
+            <div class="project-media">
+                <img src="iHear_Web.png" alt="iHear smart hearing aid">
+            </div>
+            <p class="desc">I helped lead a team to design an innovative smart hearing aid, iHear. Through this project, I learnt valuable skills in the form of soldering and PCB design. We have been granted a patent for this project.</p>
+            <p class="desc">(A huge special thanks to <a href="https://www.linkedin.com/in/tanmay-rai-nanda/" target="_blank" rel="noopener">Tanmay</a> for his help with this project!)</p>
+            <p class="desc project-links">The patent documentation for this project can be found <a href="https://www.quickcompany.in/patents/improved-hearing-aids#documents" target="_blank" rel="noopener">here.</a></p>
+            <p class="project-tags">PCB Design · Soldering · Patent Granted</p>
+        </article>
     </section>
-    
-    <div id="site-footer"></div>
+
+    <section class="hidden project">
+        <article class="project-card">
+            <p class="project-label">Project 6:</p>
+            <div class="project-title-wrap">
+                <h2 class="project-title bat plain_heading">Bat Sense!</h2>
+            </div>
+            <div class="project-media">
+                <img src="https://hackster.imgix.net/uploads/attachments/485415/arduino_ping1_Ct9iXxmZ2p.jpg?auto=compress%2Cformat&w=900&h=675&fit=min" alt="Arduino ultrasonic distance sensor used in the Bat Sense project">
+            </div>
+            <p class="desc">One of my first ever Arduino projects, this project was a simple design utilising the Arduino microcontroller, Bluetooth, and a simple ultrasonic sensor. This project was completed as a part of ASSET Summer Program 2018.</p>
+            <p class="desc project-links">The Hackster project for this project can be found <a href="https://www.hackster.io/97833/bat-sense-9e89a6" target="_blank" rel="noopener">here.</a></p>
+            <p class="project-tags">Arduino · Bluetooth · Ultrasonic Sensor</p>
+        </article>
+    </section>
+
+    <footer>
+        <span>© 2026 Aditya Mani. All rights reserved.</span>
+        <span>Feel free to reach out to me at <a href="mailto:theadityamani@gmail.com" style="color:burlywood;">theadityamani@gmail.com</a>!</span>
+    </footer>
 
     <div id="overlay"></div>
 </main>

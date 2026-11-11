@@ -18,13 +18,48 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&amp;family=Bangers&amp;family=Boldonse&amp;family=Bruno+Ace&amp;family=Cairo+Play:wght@200..1000&amp;family=Nanum+Pen+Script&amp;family=Press+Start+2P&amp;family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;display=swap">
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
   <script src="paper_timeline.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://oofmani.com/#person",
+    "name": "Aditya Mani",
+    "url": "https://oofmani.com/",
+    "email": "mailto:theadityamani@gmail.com",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Nanyang Technological University",
+      "url": "https://www.ntu.edu.sg/"
+    },
+    "sameAs": [
+      "https://github.com/OofMani",
+      "https://scholar.google.com/citations?user=o_4ln74AAAAJ"
+    ]
+  }
+  </script>
 </head>
 <body>
   
-  <div id="site-header"></div>
+  <header>
+      <span class="sign_header">oof, mani!</span>
+      <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+      <ul style="padding-right: 20px;" id="nav-menu">
+          <li><a href="/" class="nav_text">Portfolio</a></li>
+          <li><a href="acad_projects.html" class="nav_text">Academic Projects</a></li>
+          <li><a href="papers.html" class="nav_text_current" aria-current="page">Paper Implementations</a></li>
+          <li><a href="contact_me.html" class="nav_text">Contact Me</a></li>
+      </ul>
+  </header>
 
   <section style="min-height: auto; padding-top: 30vh; padding-bottom: 5%;">
     <h1 class="sequential plain_heading" style="animation-delay: 0s; text-align: center;">
@@ -91,6 +126,7 @@
           <p>
             The Grad-CAM technique uses the gradients of the target class flowing into the final convolutional layer to produce a coarse localization map highlighting the important regions in the image for predicting the class.
             The more red the region, the more important it is for the prediction.
+          </p>
         </div>
         
 
@@ -164,23 +200,14 @@
         <div class="sec_border"></div>
       </section>
 
-      <!-- Paper III -->
-      <section class="timeline-item" id="paper3">
-        <span class="paper_year">2017</span>
-        <span class="paper_title">Attention</span>
-        <h3 class="paper_description">Attention Is All You Need</h3>
-        <img src="attention_demo.png" alt="Transformer demo" width="75%" style="display:block; margin:auto;" />
-        <p class="desc">Under construction.</p>
-        <p class="desc">
-          <a href="#" target="_blank">Codebase &amp; Demo (link to be added)</a>
-        </p>
-        <div class="sec_border"></div>
-      </section>
 
     </div>
   </div>
 
-  <div id="site-footer"></div>
+  <footer>
+      <span>© 2026 Aditya Mani. All rights reserved.</span>
+      <span>Feel free to reach out to me at <a href="mailto:theadityamani@gmail.com" style="color:burlywood;">theadityamani@gmail.com</a>!</span>
+  </footer>
   <div id="overlay"></div>
 </body>
 </html>
