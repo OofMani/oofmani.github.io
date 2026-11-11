@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Papers</title>
+  <title>AI Paper Implementations || Aditya Mani</title>
+  <meta name="description" content="Aditya Mani rebuilds landmark AI research papers, starting with AlexNet: a modernised model trained on cats vs dogs, with Grad-CAM maps showing where the network looks.">
+  <link rel="canonical" href="https://oofmani.com/papers.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="oof, mani!">
+  <meta property="og:title" content="AI Paper Implementations || Aditya Mani">
+  <meta property="og:description" content="Aditya Mani rebuilds landmark AI research papers, starting with AlexNet: a modernised model trained on cats vs dogs, with Grad-CAM maps showing where the network looks.">
+  <meta property="og:url" content="https://oofmani.com/papers.html">
+  <meta property="og:image" content="https://oofmani.com/iHear_Web.png">
+  <meta property="og:image:alt" content="iHear smart hearing aid project by Aditya Mani">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
   <script src="paper_timeline.js" defer></script>
@@ -55,11 +65,11 @@
           <div class="model-diagram">
             <img
               src="paperDemos/AlexNET/alexnet_arch_1.png" 
-              alt="Horizontal AlexNet architecture diagram" 
+              alt="AlexNet architecture diagram, part 1" 
             />
             <img
             src="paperDemos/AlexNET/alexnet_arch_2.png" 
-            alt="Horizontal AlexNet architecture diagram" 
+            alt="AlexNet architecture diagram, part 2" 
           />
           </div>
         </div>
@@ -84,43 +94,43 @@
         <div class="gradcam-grid">
           <div class="gradcam-cell">
             <div class="img-container">
-              <img src="paperDemos/AlexNET/gradCAM/test_img1.png" class="base-img" alt="Sample 1"/>
-              <img src="paperDemos/AlexNET/gradCAM/gradcam1.png" class="heatmap-img" alt="Overlay 1"/>
+              <img src="paperDemos/AlexNET/gradCAM/test_img1.png" class="base-img" alt="Test image 1, classified as cat with 0.98 confidence"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam1.png" class="heatmap-img" alt="Grad-CAM heatmap for test image 1, showing where AlexNet looked"/>
             </div>
             <p class="desc" style="text-align: center;">"Cat" ~ 0.98 Confidence</p>
           </div>
           <div class="gradcam-cell">
             <div class="img-container">
-              <img src="paperDemos/AlexNET/gradCAM/test_img2.png" class="base-img" alt="Sample 2"/>
-              <img src="paperDemos/AlexNET/gradCAM/gradcam2.png" class="heatmap-img" alt="Overlay 2"/>
+              <img src="paperDemos/AlexNET/gradCAM/test_img2.png" class="base-img" alt="Test image 2, classified as cat with 0.78 confidence"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam2.png" class="heatmap-img" alt="Grad-CAM heatmap for test image 2, showing where AlexNet looked"/>
             </div>
             <p class="desc" style="text-align: center;">"Cat" ~ 0.78 Confidence</p>
           </div>
           <div class="gradcam-cell">
             <div class="img-container">
-              <img src="paperDemos/AlexNET/gradCAM/test_img3.png" class="base-img" alt="Sample 3"/>
-              <img src="paperDemos/AlexNET/gradCAM/gradcam3.png" class="heatmap-img" alt="Overlay 3"/>
+              <img src="paperDemos/AlexNET/gradCAM/test_img3.png" class="base-img" alt="Test image 3, classified as cat with 0.91 confidence"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam3.png" class="heatmap-img" alt="Grad-CAM heatmap for test image 3, showing where AlexNet looked"/>
             </div>
             <p class="desc" style="text-align: center;">"Cat" ~ 0.91 Confidence</p>
           </div>
           <div class="gradcam-cell">
             <div class="img-container">
-              <img src="paperDemos/AlexNET/gradCAM/test_img4.png" class="base-img" alt="Sample 4"/>
-              <img src="paperDemos/AlexNET/gradCAM/gradcam4.png" class="heatmap-img" alt="Overlay 4"/>
+              <img src="paperDemos/AlexNET/gradCAM/test_img4.png" class="base-img" alt="Test image 4, classified as dog with 0.99 confidence"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam4.png" class="heatmap-img" alt="Grad-CAM heatmap for test image 4, showing where AlexNet looked"/>
             </div>
             <p class="desc" style="text-align: center;">"Dog" ~ 0.99 Confidence</p>
           </div>
           <div class="gradcam-cell">
             <div class="img-container">
-              <img src="paperDemos/AlexNET/gradCAM/test_img5.png" class="base-img" alt="Sample 5"/>
-              <img src="paperDemos/AlexNET/gradCAM/gradcam5.png" class="heatmap-img" alt="Overlay 5"/>
+              <img src="paperDemos/AlexNET/gradCAM/test_img5.png" class="base-img" alt="Test image 5, classified as dog with 0.77 confidence"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam5.png" class="heatmap-img" alt="Grad-CAM heatmap for test image 5, showing where AlexNet looked"/>
             </div>
             <p class="desc" style="text-align: center;">"Dog" ~ 0.77 Confidence</p>
           </div>
           <div class="gradcam-cell">
             <div class="img-container">
-              <img src="paperDemos/AlexNET/gradCAM/test_img6.png" class="base-img" alt="Sample 6"/>
-              <img src="paperDemos/AlexNET/gradCAM/gradcam6.png" class="heatmap-img" alt="Overlay 6"/>
+              <img src="paperDemos/AlexNET/gradCAM/test_img6.png" class="base-img" alt="Test image 6, classified as cat with 0.70 confidence"/>
+              <img src="paperDemos/AlexNET/gradCAM/gradcam6.png" class="heatmap-img" alt="Grad-CAM heatmap for test image 6, showing where AlexNet looked"/>
             </div>
             <p class="desc" style="text-align: center;">"Cat" ~ 0.70 Confidence</p>
           </div>
