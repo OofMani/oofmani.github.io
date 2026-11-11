@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome!</title>
+  <title>Academic Projects || Aditya Mani</title>
+  <meta name="description" content="Academic projects by Aditya Mani at NTU and abroad: a haptic virtual carving system (Final Year Project), Unreal Engine game AI, the Checkit full-stack web app, and the CAMS object-oriented application.">
+  <link rel="canonical" href="https://oofmani.com/acad_projects.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="oof, mani!">
+  <meta property="og:title" content="Academic Projects || Aditya Mani">
+  <meta property="og:description" content="Academic projects by Aditya Mani at NTU and abroad: a haptic virtual carving system (Final Year Project), Unreal Engine game AI, the Checkit full-stack web app, and the CAMS object-oriented application.">
+  <meta property="og:url" content="https://oofmani.com/acad_projects.html">
+  <meta property="og:image" content="https://oofmani.com/FYP_preview.jpg">
+  <meta property="og:image:alt" content="Virtual carving in Unity with the Geomagic Touch haptic stylus">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
 </head>
@@ -17,8 +27,34 @@
     <p class="sequential" style="animation-delay: 0.5s;">Scroll Down ↓</p>
   </section>
   
-  <section class="show" id="m_sec">
+  <section class="show">
     <h2>I.</h2>
+    <div class="fyp_title">
+      <p class="acad_titles" id="fyp_title">Virtual Carving with Haptics - Final Year Project</p>
+    </div>
+    <video src="FYP_Trimmed.mp4" autoplay muted loop playsinline width="100%" loading="lazy"></video>
+    <p class="desc">
+      My NTU Final Year Project, <em>Virtual Carving Using the Desktop Haptic Device 3DSystems Geomagic Touch</em>
+      (College of Computing and Data Science, supervised by Assoc. Prof. Alexei Sourin). I built a virtual carving
+      system in Unity that couples the Geomagic Touch haptic stylus with the SOFA physics engine through SofaUnity,
+      with real-time 3D stylus tracking, button-triggered carving, and force feedback from a surface-normal penalty
+      model, integrated via the HapticsDirect.dll native wrapper.
+    </p>
+    <p class="desc">
+      To isolate the effect of force feedback itself, I tested it against a working 3D mouse-and-keyboard carving
+      baseline in a counterbalanced within-subjects user study (N=12). With haptics, carving accuracy improved by
+      about 28% and mental workload (NASA-TLX) dropped by about 27%, both significant at p&nbsp;&lt;&nbsp;0.001 with large
+      effect sizes (d&nbsp;=&nbsp;1.45 and 1.88).
+    </p>
+    <p class="desc">
+      <a href="https://hdl.handle.net/10356/214074" target="_blank" rel="noopener">Read the published paper on DR-NTU</a>
+      (2026)
+    </p>
+    <p class="desc">Unity · C# · SOFA · Haptics · HCI · User Study</p>
+  </section>
+
+  <section class="show" id="m_sec">
+    <h2>II.</h2>
     <div class="mario_title">
       <p class="acad_titles" id="m_title">Unreal Engine - Game Design</p>
     </div>
@@ -33,7 +69,7 @@
   </section>
   
   <section class="show">
-    <h2>II.</h2>
+    <h2>III.</h2>
     <div class="Reckless Driver">
       <p class="acad_titles" id="c_title">Checkit - Full Stack Development</p>
     </div>
@@ -46,11 +82,11 @@
   </section>
   
   <section class="show">
-    <h2>III.</h2>
+    <h2>IV.</h2>
     <div class="chess_title">
       <p class="acad_titles" id="c_title">CAMS - Object Oriented Programming</p>
     </div>
-    <img src="CAMS (1).jpg" alt="CAMS_UML" />
+    <img src="CAMS (1).jpg" alt="UML diagram of the CAMS orientation camp application" />
     <p class="desc">
       As part of a team, I created an intuitive CLI-based application for assigning and reorganizing student groups
       into various orientation camps. Through this project, I delved into the various parts of the SDLC, and learnt
