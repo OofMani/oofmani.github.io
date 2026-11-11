@@ -138,18 +138,20 @@ header ul li a{
 
 footer{
     display: grid;
-    height: 60px;
+    height: auto;
+    row-gap: 0.5rem;
+    padding-top: 1.5rem;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     justify-items: center;
     align-items: center;
     text-align: center;
     transition: 0.6s;
     z-index: 9999;
     background-color: #010002;
-    padding-bottom: 15%;
-
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+    font-size: 0.75rem;
 }
 
 #board {
@@ -348,7 +350,6 @@ section.project{
     justify-items: center;
     row-gap: 1.25rem;
     padding: clamp(1.25rem, 3vw, 2.5rem);
-    border: 1px dotted rgba(250, 235, 215, 0.4);
 }
 
 .project-card > *{
@@ -415,6 +416,83 @@ section.project{
     letter-spacing: 0.02em;
     color: rgba(250, 235, 215, 0.75);
     text-align: center;
+}
+
+/* ---------------------- */
+/*   PROFILE LINKS        */
+/* ---------------------- */
+.social-links{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1.5rem;
+}
+
+.social-links a{
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0 0.25rem;
+    font-size: 0.75rem;
+}
+
+/* ---------------------- */
+/*     CONTACT PAGE       */
+/* ---------------------- */
+/* breathing room between the cave-painting caption and the contact details */
+#contact.project{
+    padding-top: clamp(5rem, 12vh, 8rem);
+}
+
+.contact-title{
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    line-height: 1;
+}
+
+.project-card .contact-intro{
+    text-align: center;
+}
+
+.contact-list{
+    justify-self: stretch;
+    display: grid;
+    row-gap: 0.25rem;
+    max-width: 40rem;
+    width: 100%;
+    margin-inline: auto;
+}
+
+.contact-list > div{
+    display: grid;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    align-items: center;
+    column-gap: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+.contact-list dt{
+    color: rgba(250, 235, 215, 0.75);
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+}
+
+.contact-list dd{
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.contact-list a{
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+}
+
+@media (max-width: 600px){
+    .contact-list > div{
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 0;
+    }
 }
 
 /* Headings that keep the look of the paragraph they replaced (zero specificity, so classes still win) */
@@ -890,9 +968,8 @@ section.project{
     footer{
         font-size: x-small !important;
         background-color: #6d0000;
-        padding-bottom: 10vh;
-
-        padding-top: 5vh;
+        padding-top: 1.5rem;
+        padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
     }
     /* Slide-in Navigation Menu */
     #nav-menu {
