@@ -27,7 +27,7 @@ function toggleMenu() {
         console.log('CURRENT PAGE:', current);
 
         document.querySelectorAll('#nav-menu a').forEach(link => {
-            const href = link.getAttribute('href');
+            const href = link.getAttribute('href').split('/').pop() || 'index.html';
             //console.log('Comparing:', href, 'vs', current);
             if (href === current) {
                 console.log('→ MATCH! Highlighting:', href);

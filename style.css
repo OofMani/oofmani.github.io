@@ -337,6 +337,13 @@ img {
 
 }
 
+/* Headings that keep the look of the paragraph they replaced (zero specificity, so classes still win) */
+:where(.plain_heading){
+    font-size: 1em;
+    font-weight: normal;
+    margin: 1em 0;
+}
+
 .desc_pic{
     
 }
